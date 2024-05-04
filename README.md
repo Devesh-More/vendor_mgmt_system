@@ -1,3 +1,5 @@
+<h1>Project creation and setup description</h1>
+
 # vendor_mgmt_system
 
 <h5>Objective<h5>
@@ -26,4 +28,45 @@ Vendor Management System has used Django and Django REST Framework. This system 
 
 # Python Required Packages Installation
 
-<h6>Command: pip install -r requirements.txt</h6>
+<ul>
+<li>pip install Django</li>
+<li>pip install djangorestframework</li>
+</ul>
+
+# Create django project
+
+<h6><i>Project and app start command<i></h6>
+<ul>
+<li>django-admin startproject Vendor</li>
+<li> cd Vendor </li>  (Navigate to Project directory )
+<li>python manage.py startapp VendorApp</li>
+</ul>
+
+# Model (Database) creation
+
+<ul>
+<li>python manage.py makemigrations</li>
+<li>python manage.py migrate</li>
+</ul>
+
+# Superuser Creation
+
+<h6><i>Commands<i></h6>
+<ul>
+<li>python manage.py createsuperuser</li>
+</ul>
+
+# Start Server
+
+<ul><li>python manage.py runserver</li></ul>
+
+# Django Administrator and Token creation
+
+<ul>
+<li>Open browser and put http://127.0.0.1:8000/admin/ in the url or after starting the server click on the link of started server as "control + click" on server link and add /admin next to the opened link on browser.</li>
+<li>Log in to django administrator using the credentials.</li>
+<li>Create a token for token authentication</li>
+<li>use the created token further</li>
+<ul>
+
+# Vendor Creation

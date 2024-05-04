@@ -75,9 +75,9 @@ Vendor Management System has used Django and Django REST Framework. This system 
 <h5>Postman Installations</h5>
 <li>Click on the link https://www.postman.com/downloads/ to download the Postman.</li>
 <li>Token Authentication: In the postman click on Headers and setup Authorization as key and Token your_token as value in the Headers.</li>
-<h4>Getting all vendors details</h4>
+Getting all vendors details
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors</li>
-<h4>Getting vendor with vendor-id</h4>
+Getting vendor with vendor-id
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors/id</li>
 </ul>
 <ul>
@@ -102,9 +102,9 @@ Use below JSON object to create a vendor:<br>
 </li>
 </ul>
 <hr>
-<h4>Getting all purchase order details</h4>
+Getting all purchase order details
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order</li>
-<h4>Getting purchase order with order-id</h4>
+Getting purchase order with order-id
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order/id</li>
 </ul>
 <ul>

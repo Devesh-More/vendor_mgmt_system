@@ -16,11 +16,11 @@ Vendor Management System has used Django and Django REST Framework. This system 
 # Setup
 
 <h5>Create Python Virtual Environment</h5>
-<h6><i>venv create command<i></h6>
+<h6>venv create command</h6>
 <ul>
 <li> python -m venv "environment name"</li>
 </ul>
-<h6><i>venv activation command<i></h6>
+<h6>venv activation command</h6>
 <ul>
 <li> Windows: environment name/Scripts/activate </li>
 <li> OSX: source environment name/bin/activate </li>
@@ -35,7 +35,7 @@ Vendor Management System has used Django and Django REST Framework. This system 
 
 # Create django project
 
-<h6><i>Project and app start command<i></h6>
+<h6>Project and app start command</h6>
 <ul>
 <li>django-admin startproject Vendor</li>
 <li> cd Vendor </li>  (Navigate to Project directory )
@@ -51,7 +51,7 @@ Vendor Management System has used Django and Django REST Framework. This system 
 
 # Superuser Creation
 
-<h6><i>Commands<i></h6>
+<h6>Commands</h6>
 <ul>
 <li>python manage.py createsuperuser</li>
 </ul>

@@ -80,11 +80,10 @@ Vendor Management System has used Django and Django REST Framework. This system 
 <h4>Getting vendor with vendor-id</h4>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors/id</li>
 </ul>
-<hr>
 <ul>
 <h3>Vendor Creation</h3>
 <li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors
-Use below JSON object to create a vendor:
+Use below JSON object to create a vendor:<br>
 {
     "name": "vendor name",
     "contact_details": "contact details",
@@ -97,17 +96,21 @@ Use below JSON object to create a vendor:
 }
 </li>
 </ul>
+<h2>Vendor Details Update</h2>
+<ul>
+<li>Setup PUT or PATCH request on the postman and hit the API endpoint with id want to update using above JSON object http://127.0.0.1:8000/api/vendors/id
+</li>
+</ul>
 <hr>
 <h4>Getting all purchase order details</h4>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order</li>
 <h4>Getting purchase order with order-id</h4>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order/id</li>
 </ul>
-<hr>
 <ul>
 <h3>Purchase Order Creation</h3>
 <li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order
-Use below JSON object to create a purchase order:
+Use below JSON object to create a purchase order:<br>
 {
     "po_number": "po_number",
     "order_date": "order_date",
@@ -126,3 +129,9 @@ Use below JSON object to create a purchase order:
 }
 </li>
 </ul>
+<h2>Purchase Order Update</h2>
+<ul>
+<li>Setup PUT or PATCH request on the postman and hit the API endpoint with id want to update using above JSON object http://127.0.0.1:8000/api/purchase_order/id
+</li>
+</ul>
+<hr>

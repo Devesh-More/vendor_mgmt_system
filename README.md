@@ -63,10 +63,66 @@ Vendor Management System has used Django and Django REST Framework. This system 
 # Django Administrator and Token creation
 
 <ul>
-<li>Open browser and put http://127.0.0.1:8000/admin/ in the url or after starting the server click on the link of started server as "control + click" on server link and add /admin next to the opened link on browser.</li>
+<li>Open browser and put http://127.0.0.1:8000/admin/ in the url or after starting the server click on the link of started server as "control + click" on server link and add "/admin" next to the opened link in the browser.</li>
 <li>Log in to django administrator using the credentials.</li>
 <li>Create a token for token authentication</li>
 <li>use the created token further</li>
 <ul>
 
-# Vendor Creation
+# API endpoint testings
+
+<ul>
+<h5>Postman Installations</h5>
+<li>Click on the link https://www.postman.com/downloads/ to download the Postman.</li>
+<li>Token Authentication: In the postman click on Headers and setup Authorization as key and Token your_token as value in the Headers.</li>
+<h4>Getting all vendors details</h4>
+<li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors</li>
+<h4>Getting vendor with vendor-id</h4>
+<li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors/id</li>
+</ul>
+<hr>
+<ul>
+<h3>Vendor Creation</h3>
+<li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors
+Use below JSON object to create a vendor:
+{
+    "name": "vendor name",
+    "contact_details": "contact details",
+    "address": "address",
+    "vendor_code": "vendor code",
+    "on_time_delivery_rate": rate,
+    "quality_rating_avg": quality_rating,
+    "average_response_time": avg_resp_time,
+    "fulfillment_rate": fulfillment_rate
+}
+</li>
+</ul>
+<hr>
+<h4>Getting all purchase order details</h4>
+<li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order</li>
+<h4>Getting purchase order with order-id</h4>
+<li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order/id</li>
+</ul>
+<hr>
+<ul>
+<h3>Purchase Order Creation</h3>
+<li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order
+Use below JSON object to create a purchase order:
+{
+    "po_number": "po_number",
+    "order_date": "order_date",
+    "delivery_date": "delivery_date",
+    "items": [
+        {
+            "items": "number of items"
+        }
+    ],
+    "quantity": numeric_quantity,
+    "status": "pending",             eg:(completed,pending,canceled)
+    "quality_rating": rating,
+    "issue_date": "issue_date",
+    "acknowledgment_date": "acknowledgment_date",
+    "vendor": 4                      (Vendor id with it should be associated)
+}
+</li>
+</ul>

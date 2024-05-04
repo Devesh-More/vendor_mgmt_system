@@ -50,3 +50,39 @@ class HistoricalPerformance(models.Model):
 
     class Meta:
         db_table = "Historical Performance"
+
+
+@receiver(post_save, sender=PurchaseOrder)
+def update_metrics(sender, instance, created, **kwargs):
+    # On-Time Delivery Rate
+    if instance.status == 'completed':
+        completed_orders = PurchaseOrder.objects.filter(vendor=instance.vendor, status='completed')
+        on_time_deliveries = completed_orders.filter(delivery_date__lte=instance.delivery_date)
+        on_time_delivery_rate = on_time_deliveries.count() / completed_orders.count() if completed_orders.count() > 0 else 0 
+        instance.vendor.on_time_delivery_rate = on_time_delivery_rate
+        instance.vendor.save()
+
+    # Quality Rating Average
+    if instance.status == 'completed' and instance.quality_rating is not None:
+        completed_orders = PurchaseOrder.objects.filter(vendor=instance.vendor, status='completed')
+        avg_quality_rating = completed_orders.aggregate(avg_quality_rating=Avg('quality_rating'))['avg_quality_rating']
+        instance.vendor.quality_rating_average = avg_quality_rating
+        instance.vendor.save()
+
+@receiver(pre_save, sender=PurchaseOrder)
+def calculate_average_response_time(sender, instance, **kwargs):
+    if instance.acknowledgment_date is not None:
+        completed_orders = PurchaseOrder.objects.filter(vendor=instance.vendor, acknowledgment_date__isnull=False)
+        response_times = [(po.acknowledgment_date - po.issue_date).total_seconds() for po in completed_orders]
+        avg_response_time = sum(response_times) / len(response_times) if len(response_times) > 0 else 0
+        instance.vendor.avg_response_time = avg_response_time
+        instance.vendor.save() 
+
+
+@receiver(post_save, sender=PurchaseOrder)
+def calculate_fulfilment_rate(sender, instance, created, **kwargs):
+    total_orders = PurchaseOrder.objects.filter(vendor=instance.vendor).count()
+    successful_fulfillments = PurchaseOrder.objects.filter(vendor=instance.vendor, status='completed', quality_rating__isnull=False)
+    fulfilment_rate = successful_fulfillments.count() / total_orders if total_orders > 0 else 0
+    instance.vendor.fulfilment_rate = fulfilment_rate
+    instance.vendor.save()

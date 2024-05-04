@@ -18,3 +18,15 @@ class VendorUpdDelFetch(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = VendorSerializer
 
 
+# Purchase Order Create, retrive all view
+class PurchaseCreateViewList(generics.ListCreateAPIView):
+    queryset = PurchaseOrder.objects.all()
+    serializer_class = PurchaseOrderSerializer
+
+
+# Purchase Order retrive, update, delete with id view
+class PurchaseUpdDelFetch(generics.RetrieveUpdateDestroyAPIView):
+    queryset = PurchaseOrder.objects.all()
+    serializer_class = PurchaseOrderSerializer
+
+

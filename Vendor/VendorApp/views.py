@@ -1,23 +1,20 @@
 from django.shortcuts import render
-from rest_framework import generics, status
-from .models import Vendor, PurchaseOrder, HistoricalPerformance
+from rest_framework import generics
+from .models import Vendor, PurchaseOrder
 from .serializers import VendorSerializer, PurchaseOrderSerializer
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
-from django.utils import timezone
 from django.db.models import Avg
+from django.http import JsonResponse
 
 # Create your views here.
-class VendorList(generics.ListCreateAPIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+# Vendors Create, retrive all view
+class VendorCreateViewList(generics.ListCreateAPIView):
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
+    
 
-
+# Vendors retrive, update, delete with id view
 class VendorUpdDelFetch(generics.RetrieveUpdateDestroyAPIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     queryset = Vendor.objects.all()
     serializer_class = VendorSerializer
+
 

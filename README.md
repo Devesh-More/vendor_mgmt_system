@@ -75,14 +75,14 @@ Vendor Management System has used Django and Django REST Framework. This system 
 <h5>Postman Installations</h5>
 <li>Click on the link https://www.postman.com/downloads/ to download the Postman.</li>
 <li>Token Authentication: In the postman click on Headers and setup Authorization as key and Token your_token as value in the Headers.</li>
-Getting all vendors details
+<h6>Getting all vendors details</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors</li>
-Getting vendor with vendor-id
+<h6>Getting vendor with vendor-id</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors/id</li>
 </ul>
 <ul>
 <h3>Vendor Creation</h3>
-<li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors
+<li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors<br>
 Use below JSON object to create a vendor:<br>
 {
     "name": "vendor name",
@@ -102,14 +102,14 @@ Use below JSON object to create a vendor:<br>
 </li>
 </ul>
 <hr>
-Getting all purchase order details
+<h6>Getting all purchase order details</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order</li>
-Getting purchase order with order-id
+<h6>Getting purchase order with order-id</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order/id</li>
 </ul>
 <ul>
 <h3>Purchase Order Creation</h3>
-<li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order
+<li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order<br>
 Use below JSON object to create a purchase order:<br>
 {
     "po_number": "po_number",

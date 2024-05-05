@@ -1,4 +1,4 @@
-<h1>Project creation and setup description</h1>
+<h1>Project setup and description</h1>
 
 # vendor_mgmt_system
 
@@ -49,7 +49,7 @@ Vendor Management System has used Django and Django REST Framework. This system 
 <li>python manage.py migrate</li>
 </ul>
 
-# Superuser Creation
+# Create Superuser
 
 <h6>Commands</h6>
 <ul>
@@ -74,14 +74,14 @@ Vendor Management System has used Django and Django REST Framework. This system 
 <ul>
 <h5>Postman Installations</h5>
 <li>Click on the link https://www.postman.com/downloads/ to download the Postman.</li>
-<li>Token Authentication: In the postman click on Headers and setup Authorization as key and Token your_token as value in the Headers.</li>
+<li>Token Authentication: In the postman click on Headers and setup "Authorization" as key and "Token your_token" as value in the Headers.</li>
 <h6>Getting all vendors details</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors</li>
 <h6>Getting vendor with vendor-id</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors/id</li>
 </ul>
 <ul>
-<h3>Vendor Creation</h3>
+<h3>Add New Vendor</h3>
 <li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/vendors<br>
 Use below JSON object to create a vendor:<br>
 {
@@ -96,19 +96,22 @@ Use below JSON object to create a vendor:<br>
 }
 </li>
 </ul>
-<h2>Vendor Details Update</h2>
+<h2>Update Vendor Details </h2>
 <ul>
-<li>Setup PUT or PATCH request on the postman and hit the API endpoint with id want to update using above JSON object http://127.0.0.1:8000/api/vendors/id
+<li>Setup PUT or PATCH request on the postman to update all the fields or to update selective fields respectively and then hit the API endpoint with id want to update using above JSON object http://127.0.0.1:8000/api/vendors/id</li>
+<h2>Delete Vendors</h2>
+<li>Setup Delete request on the postman and hit the API endpoint with vendor id wanted to remove http://127.0.0.1:8000/api/vendors/id
 </li>
 </ul>
 <hr>
+
 <h6>Getting all purchase order details</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order</li>
 <h6>Getting purchase order with order-id</h6>
 <li>Setup GET request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order/id</li>
 </ul>
 <ul>
-<h3>Purchase Order Creation</h3>
+<h3>Add Purchase Order</h3>
 <li>Setup POST request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_order<br>
 Use below JSON object to create a purchase order:<br>
 {
@@ -129,9 +132,29 @@ Use below JSON object to create a purchase order:<br>
 }
 </li>
 </ul>
-<h2>Purchase Order Update</h2>
+<h2>Update Purchase Order</h2>
 <ul>
-<li>Setup PUT or PATCH request on the postman and hit the API endpoint with id want to update using above JSON object http://127.0.0.1:8000/api/purchase_order/id
+<li>Setup PUT or PATCH request on the postman to update all the fields or to update selective fields respectively and then hit the API endpoint with id want to update using above JSON object http://127.0.0.1:8000/api/purchase_order/id
+</li>
+<h2>Delete Purchase Order</h2>
+<li>Setup Delete request on the postman and hit the API endpoint with purchase id wanted to remove http://127.0.0.1:8000/api/vendors/id
 </li>
 </ul>
 <hr>
+
+<h2>Vendors Performance Metrics</h2>
+<ul>
+<li>Setup GET request on the postman and hit the API endpoint with http://127.0.0.1:8000/api/vendors/id/performance</li>
+<li>This API will return a performance metrics of the vendor as per given vendor id.</li>
+<li>It will return on_time Delivery rate, quality rating average, average response time, fulfilment rate.</li>
+<li>On time delivery rate is calculated each time a PO status changes to "completed". this is the average of no. of po delivered before the delivery_date and no of total po's delivered.</li>
+<li>quality rating average is calculated after every po completion and it is the average of all ratings given as per provided vendor id.</li>
+<li>average response time is calculated each time a po is acknowledged by the vendor. it is the time difference between issue_date and acknowledgment_date for each po, and then the average of these times for all po's of the vendor.</li>
+<li>fulfillment rate is calculated when po status is set to "completed", this is the average of no. of successfully fulfilled po's when status = "completed", by the total no of pos issued to the vendor.</li>
+<hr>
+
+<h2>Acknowledgement_data updation and the recalculation of average_response_time</h2>
+<ul>
+<li>Setup PATCH request on the postman and hit the API endpoint http://127.0.0.1:8000/api/purchase_orders/id/acknowledge with particular po id.</li>
+<li>This will acknowledge the purchase order with provided po id and will recalculate the average response time.</li>
+</ul>

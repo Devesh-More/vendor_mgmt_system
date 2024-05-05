@@ -151,6 +151,7 @@ Use below JSON object to create a purchase order:<br>
 <li>quality rating average is calculated after every po completion and it is the average of all ratings given as per provided vendor id.</li>
 <li>average response time is calculated each time a po is acknowledged by the vendor. it is the time difference between issue_date and acknowledgment_date for each po, and then the average of these times for all po's of the vendor.</li>
 <li>fulfillment rate is calculated when po status is set to "completed", this is the average of no. of successfully fulfilled po's when status = "completed", by the total no of pos issued to the vendor.</li>
+</ul>
 <hr>
 
 <h2>Acknowledgement_data updation and the recalculation of average_response_time</h2>

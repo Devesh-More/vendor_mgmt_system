@@ -67,7 +67,7 @@ Vendor Management System has used Django and Django REST Framework. This system 
 <li>Log in to django administrator using the credentials.</li>
 <li>Create a token for token authentication</li>
 <li>use the created token further</li>
-<ul>
+</ul>
 
 # API endpoint testings
 
